@@ -20,7 +20,7 @@ var media_hunter = function () {
     patternlab.mediaQueries = [];
 
     diveSync(dir, function (err, file) {
-      if (path.extname(file) === '.css') {
+      if (file && path.extname(file) === '.css') {
         var contents = fs.readFileSync(file, 'utf8');
         var safeContents = contents.replace("\r", " ").replace("\n", " ");
         var matches = safeContents.match(/\((min|max)-width:([ ]+)?(([0-9]{1,5})(\.[0-9]{1,20}|)(px|em))/g);
